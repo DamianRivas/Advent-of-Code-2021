@@ -7,7 +7,9 @@ const rl = readline.createInterface({
   terminal: false,
 });
 
+// Keeps track of points for PART ONE
 const points = {};
+// Keeps track of points for PART TWO
 const allPoints = {};
 
 rl.on("line", (line) => {
@@ -22,6 +24,7 @@ rl.on("close", () => {
     "Number of points where at least 2 vertical/horizontal lines overlap:"
   );
   console.log(Object.values(points).filter((val) => val >= 2).length);
+  // PART TWO
   console.log("Number of points where at least 2 lines overlap:");
   console.log(Object.values(allPoints).filter((val) => val >= 2).length);
 });
@@ -44,6 +47,7 @@ function populatePoints(x1, y1, x2, y2) {
       allPoints[point] = allPoints[point] ? allPoints[point] + 1 : 1;
     }
   } else {
+    // PART TWO
     const currentPoint = [x1, y1];
     const goingRight = x2 > x1;
     const goingDown = y2 > y1;
