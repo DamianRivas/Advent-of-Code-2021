@@ -7,12 +7,10 @@ const rl = readline.createInterface({
   terminal: false,
 });
 
-const lines = [];
 const points = {};
 const allPoints = {};
 
 rl.on("line", (line) => {
-  lines.push(line);
   const points = line.split(" -> ");
   const [x1, y1] = points[0].split(",").map((v) => Number(v));
   const [x2, y2] = points[1].split(",").map((v) => Number(v));
