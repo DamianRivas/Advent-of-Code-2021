@@ -35,16 +35,12 @@ function populatePoints(x1, y1, x2, y2) {
   if (isHorizontal) {
     const allXs = x1 > x2 ? range(x2, x1) : range(x1, x2);
     for (let x of allXs) {
-      const point = `${x},${y1}`;
-      points[point] = points[point] ? points[point] + 1 : 1;
-      allPoints[point] = allPoints[point] ? allPoints[point] + 1 : 1;
+      incrementPoint(x, y1);
     }
   } else if (isVertical) {
     const allYs = y1 > y2 ? range(y2, y1) : range(y1, y2);
     for (let y of allYs) {
-      const point = `${x1},${y}`;
-      points[point] = points[point] ? points[point] + 1 : 1;
-      allPoints[point] = allPoints[point] ? allPoints[point] + 1 : 1;
+      incrementPoint(x1, y);
     }
   } else {
     // PART TWO
@@ -62,6 +58,12 @@ function populatePoints(x1, y1, x2, y2) {
     const point = `${currentPoint[0]},${currentPoint[1]}`;
     allPoints[point] = allPoints[point] ? allPoints[point] + 1 : 1;
   }
+}
+
+function incrementPoint(x, y) {
+  const point = `${x},${y}`;
+  points[point] = points[point] ? points[point] + 1 : 1;
+  allPoints[point] = allPoints[point] ? allPoints[point] + 1 : 1;
 }
 
 function range(min, max) {
