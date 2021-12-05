@@ -16,11 +16,7 @@ rl.on("line", (line) => {
   const points = line.split(" -> ");
   const [x1, y1] = points[0].split(",").map((v) => Number(v));
   const [x2, y2] = points[1].split(",").map((v) => Number(v));
-  // const isHorizontal = y1 === y2;
-  // const isVertical = x1 === x2;
-  // if (isHorizontal || isVertical) {
   populatePoints(x1, y1, x2, y2);
-  // }
 });
 
 rl.on("close", () => {
